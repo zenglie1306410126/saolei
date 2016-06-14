@@ -1,4 +1,4 @@
-function addh(){
+﻿function addh(){
     var h,sil;
     sil = document.getElementById("pn");
     h = parseFloat(sil.style.height) ||0;
@@ -109,7 +109,103 @@ window.onload = function(){
 		return; 
 		} 
 		document.getElementById(event.srcElement.getAttribute("id")).innerHTML=data[i][j]; 
-		} 
+		} function showSpace2(id){
+		var row=parseInt(number / 100); 
+		var cel=number%100-10;
+    //alert(row+"."+col);
+ 		var cols=data.length;
+ 		var rows=data.length;
+ 	        //判断左上
+ 	        if((row-1>=1)&&(col-1>=1)){
+ 	    	    var but=$((row-1)+"."+(col-1));
+ 	    	    if(but.value!="0"){
+ 	    	    but.value=(Mine[row-1][col-1]=="雷") ? "" : Mine[row-1][col-1];
+ 	    	    but.className="myButton"+but.value;
+ 	    	      if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }	
+ 	    	}
+ 	    	//判断正上
+ 	    	if(row>=1){
+ 	    		var but=$((row-1)+"."+(col));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row-1][col]=="雷") ? "" : Mine[row-1][col];
+ 	    	    but.className="myButton"+but.value;
+ 	    	     if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }
+ 	    	}
+ 	    	//判断右上
+ 	    	if((row-1>=0)&&(col<=cols-2)){
+ 	    		var but=$((row-1)+"."+(col+1));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row-1][col+1]=="雷") ? "" : Mine[row-1][col+1];
+ 	    	    but.className="myButton"+but.value;
+ 	    		 if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    		}
+ 	    	}
+ 	    	//判断左边
+ 	    	if(col>=1){
+ 	    		var but=$((row)+"."+(col-1));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row][col-1]=="雷") ? "" : Mine[row][col-1];
+ 	    	    but.className="myButton"+but.value;
+ 	    	     if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }
+ 	    	}
+ 	    	//判断右边 
+ 	    	if(col<=cols-2){
+ 	    		var but=$((row)+"."+(col+1));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row][col+1]=="雷") ? "" : Mine[row][col+1];
+ 	    	    but.className="myButton"+but.value;
+ 	    		 if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    		}
+ 	    	}
+ 	    	//判断左下
+ 	    	if((row<=rows-2)&&(col-1>=0)){
+ 	    		var but=$((row+1)+"."+(col-1));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row+1][col-1]=="雷") ? "" : Mine[row+1][col-1];
+ 	    	    but.className="myButton"+but.value;
+ 	    	     if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }
+ 	    	}
+ 	    	//判断正下
+ 	    	if(row<=rows-2){
+ 	    		var but=$((row+1)+"."+(col));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row+1][col]=="雷") ? "" : Mine[row+1][col];
+ 	    	    but.className="myButton"+but.value;
+ 	    	     if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }
+ 	    	}
+ 	    	//判断右下
+ 	    	if((row<=rows-2)&&(col<=cols-2)){
+ 	    		var but=$((row+1)+"."+(col+1));
+ 	    		if(but.value!="0"){
+ 	    	    but.value=(Mine[row+1][col+1]=="雷") ? "" : Mine[row+1][col+1];
+ 	    	    but.className="myButton"+but.value;
+ 	    	     if(but.value=="0"){
+ 	    	      	showSpace2(but);
+ 	    	      }
+ 	    	    }
+ 	    	}
+ }
+
+
 		function check(){ 
 		for(var i=1;i<=cols;i++){ 
 		for(var j=1;j<=rows;j++){ 
